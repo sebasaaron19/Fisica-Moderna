@@ -1,0 +1,451 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{comment} % habilita el uso de comentarios en varias lineas (\ifx \fi) 
+\usepackage{lipsum} %Este paquete genera texto del tipo  Lorem Ipsum. 
+\usepackage{fullpage} % cambia el margen
+%\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{upgreek} % para poner letras griegas sin cursiva
+\usepackage{cancel} % para tachar
+\usepackage{mathdots} % para el comando \iddots
+\usepackage{mathrsfs} % para formato de letra
+\usepackage{stackrel} % para el comando \stackbin
+%\usepackage{arxiv}
+\usepackage{afterpage}
+%para Español {BEGIN}
+ 
+% La sigientes lineas son para podel escribir en español usando el
+%teclaso y poder usar el corrector de idioma automático. 
+%OJOJOJOJOJOJOJOJOJOJOJOJOJO:  
+%También es necesario el spanish como opción de la clase.
+%OJOJOJOJOJOJOJOJOJOJOJOJOJO:  
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\spanishdecimal{.}
+\usepackage[utf8]{inputenc}
+%para Español {END}
+
+\begin{document}
+%Construccion del encabezado, asegurate de cambiar tus datos !!!!
+\noindent
+\large\textbf{Demostraciones Problemas 3.1, 3.2, 3.3, 3.4} \\
+\textbf{Introducción a la Física Moderna} \\
+\normalsize 
+Alumno: Castillo Espinoza Aarón Sebastián
+ 
+
+\section*{Ejercicio 3.1}
+Muestre que si X y Y son timelike o null, y X$^{0}>$0, Y$^{0}>$0, entonces g(X,Y)$>$0 (Ayuda: Usar la desigualdad de Cauchy-Schwarz).\\
+
+-Lo que queremos demostrar es que si: 
+\begin{center}
+    g(X,X)$\geq$0, g(Y,Y)$\geq$0 y X$^{0}$,Y$^{0}>$0 entonces
+    g(X,Y)$\geq$0
+\end{center}
+
+-Empezamos por desarrollar g(X,X) y g(Y,Y):
+\begin{equation} g(X,X)=(X^{0})^2 - (X^{1}) - (X^{2})^2 - (X^{3})^2
+\end{equation}
+
+\begin{equation} g(Y,Y)=(Y^{0})^2 - (Y^{1}) - (Y^{2})^2 - (Y^{3})^2
+\end{equation}
+        
+-Notamos que en (1), -(X$^{1}$)$^2$ - (X$^{2}$)$^2$ - (X$^{3}$)$^2$ se puede escribir como: -($|\vec{X}|$)$^2$, por lo tanto \begin{equation}
+    g(X,X)=(X^{0})^2 - (|\vec{X}|)^2
+\end{equation} 
+
+-Análogamente para (2),
+\begin{equation}
+    g(Y,Y)=(Y^{0})^2 - (|\vec{Y}|)^2
+\end{equation}
+
+-Despejamos X$^{0}$ y Y$^{0}$
+\begin{equation}
+    X^{0}=\sqrt{g(X,X)+(|\vec{X}|)^2}
+\end{equation}
+
+\begin{equation}
+    Y^{0}=\sqrt{g(Y,Y)+(|\vec{Y}|)^2}
+\end{equation}
+
+-Ahora desarrollamos g(X,Y):
+\begin{equation}
+    g(X,Y)=X^{0}Y^{0} - X^{1}Y^{1} - X^{2}Y^{2} - Y^{3}Y^{3}
+\end{equation}
+
+-AL igual que los casos anteriores, -(X$^{1}$Y$^{3}$) - (X$^{2}$Y$^{3}$) - (X$^{3}$Y$^{3}$) se puede escribir como: -($\vec{X}\cdot\vec{Y}$)
+
+-Por lo que (7) puede escribirse de la siguiente manera:
+\begin{equation}
+    g(X,Y)=X^{0}Y^{0} - \vec{X}\cdot\vec{Y}
+\end{equation}
+
+-Sustituimos (5) y (6) en (8) y nos queda:
+\begin{equation}
+    g(X,Y)=\sqrt{g(X,X)+(|\vec{X}|)^2}\cdot\sqrt{g(Y,Y)+(|\vec{Y}|)^2} - \vec{X}\cdot\vec{Y}
+\end{equation}
+
+De los resultados anteriores podemos plantear la siguiente desigualdad:
+\begin{equation}
+    \sqrt{g(X,X)+(|\vec{X}|)^2}\cdot\sqrt{g(Y,Y)+(|\vec{Y}|)^2} \geq |\vec{X}| \cdot |\vec{Y}|
+\end{equation}
+
+-Notamos que esto siempre se cumple pues, por el planteamiento del problema, g(X,X), g(Y,Y)$\geq$0. 
+
+-Por lo tanto, si g(X,X)$=$0 y g(Y,Y)=0, entonces:
+\begin{center}
+$|\vec{X}| \cdot |\vec{Y}|$ = $|\vec{X}| \cdot |\vec{Y}|$.
+\end{center}
+
+-Por otro lado, si g(X,X)$>$0 y g(Y,Y)$>$0, entonces:
+\begin{center} 
+$\sqrt{g(X,X)+(|\vec{X}|)^2}\cdot\sqrt{g(Y,Y)+(|\vec{Y}|)^2} > |\vec{X}| \cdot |\vec{Y}|$.
+\end{center}
+
+-Ahora si restamos $\vec{X}\cdot\vec{Y}$ en ambos lados para mantener la desigualdad obtenemos:
+\begin{equation}
+    \sqrt{g(X,X)+(|\vec{X}|)^2}\cdot\sqrt{g(Y,Y)+(|\vec{Y}|)^2} - \vec{X}\cdot\vec{Y} \geq |\vec{X}| \cdot |\vec{Y}| - \vec{X}\cdot\vec{Y}
+\end{equation}
+
+-Notamos que el lado izquierdo de la desigualdad (11) es igual a g(X,Y) en (9), por lo que al sustituir (9) en (11) nos queda 
+\begin{equation}
+    g(X,Y)\geq |\vec{X}| \cdot |\vec{Y}| - \vec{X}\cdot\vec{Y}
+\end{equation}
+
+-Ahora, cabe destacar que $|\vec{X}| \cdot |\vec{Y}|\geq$0. Por lo que, para que esta desigualdad se cumpla tenemos 2 casos:  
+\begin{enumerate}
+    \item[Caso 1:]
+    -Si $(\vec{X}\cdot\vec{Y})\geq$  0.
+        \item[]
+        Si esto se cumple, la ecuación (12) pasa a ser $|\vec{X}| \cdot |\vec{Y}| + \vec{X}\cdot\vec{Y}\geq$0.
+        
+        Por lo tanto g(X,Y)$\geq$0
+        
+        $\hfill\square$.
+    \item[Caso 2:]
+    -Si $(\vec{X}\cdot\vec{Y})>$ 0.
+        \item[]
+            Para esto supongamos que:
+            \begin{center}
+            $|\vec{X}| \cdot |\vec{Y}| - \vec{X}\cdot\vec{Y} >$0
+            \end{center}
+            Podemos reescribir como:
+            \begin{center}
+            $|\vec{X}| \cdot |\vec{Y}| > \vec{X}\cdot\vec{Y}$
+            
+            $|\vec{X}|^2 \cdot |\vec{Y}|^2 > (\vec{X}\cdot\vec{Y})^2$
+            \end{center}
+        Llegamos a la desigualdad de Cauchy-Shwartz, esta desigualdad es verdadera, por lo que podemos concluir que g(X,Y)$\geq$0
+        
+        $\hfill\square$.
+\end{enumerate}
+
+% \afterpage{\null\newpage}
+\newpage
+\section*{Ejercicio 3.2}
+Muestre que si X es un 4-vector timelike o null y si $X^{0}>$0 en un marco de referencia inercial, entonces $X^{0}>$0 en todo marco de referencia inercial. (Ayuda: Deje que Y es un 4-vector con componentes ($L_{0}^{0}$,$-L_{1}^{0}$,$-L_{2}^{0}$,$-L_{3}^{0}$); aplique los resultados del ejercicio previo). Muestre por una contradicción que esto no es verdad para un vector spacelike.\\
+
+-Lo que queremos demostrar es que g(Y,Y)$>$0, el problema nos pide que partamos del caso contrario, g(Y,Y)$<$0, es decir que sea spacelike 
+
+-Si consideramos al 4-vector
+\begin{equation}
+    Y=(L_{0}^{0},-L_{1}^{0},-L_{2}^{0},-L_{3}^{0})
+\end{equation}
+
+-Y teniendo a la matriz transformación\\ 
+\begin{center}
+$L=
+\begin{bmatrix}{L_{0}^{0}}&{L_{1}^{0}}&{L_{2}^{0}}&{L_{3}^{0}}\\{L_{0}^{1}}&{L_{1}^{1}}&{L_{2}^{1}}&{L_{3}^{1}}\\{L_{0}^{2}}&{L_{1}^{2}}&{L_{2}^{2}}&{L_{3}^{2}}\\{L_{0}^{3}}&{L_{1}^{3}}&{L_{2}^{3}}&{L_{3}^{3}}\end{bmatrix} =
+\begin{bmatrix}{\gamma}&{\gamma(\frac{v}{c})}&{0}&{0}\\{\gamma(\frac{v}{c}}&{\gamma}&{0}&{0}\\{0}&{0}&{1}&{0}\\{0}&{0}&{0}&{1}\end{bmatrix}$\\
+\end{center}
+
+-Por lo tanto, el 4-vector Y lo podemos escribir de la siguiente manera:
+\begin{equation}
+Y=(\gamma,-\gamma\frac{v}{c},0,0)
+\end{equation}
+
+-Por otra parte, tenemos que:
+\begin{equation}
+    g(Y,Y)=(L_{0}^{0})^2 - (L_{1}^{0})^2 - (L_{2}^{0})^2 - (L_{3}^{0})^2
+\end{equation}
+
+-De lo anterior sabemos que:
+\begin{center}
+    $L_{0}^{0}=\gamma$\\
+    $L_{1}^{0}=\gamma\frac{v}{c}$\\
+    $L_{2}^{0}=0$\\
+    $L_{3}^{0}=0$\\
+\end{center}
+
+-Lo que queremos probar es: g(Y,Y)$<$0, entonces:
+\begin{center}
+    $(L_{0}^{0})^2-(L_{1}^{0})^2-(L_{2}^{0})^2-(L_{3}^{0})^2<$0\\ 
+    $(L_{0}^{0})^2 - (L_{1}^{0})^2<$0\\
+    $(L_{0}^{0})^2 < (L_{1}^{0})^2$\\
+    $L_{0}^{0} < L_{1}^{0}$
+\end{center}
+
+-Al sustituir obtenemos:
+\begin{equation}
+    \gamma<\gamma\frac{v}{c}
+\end{equation}
+
+-Donde $\gamma=\frac{1}{\sqrt{1-\frac{v^2}{c^2}}}<1$ y $\frac{v}{c}<1$, por lo que $\gamma\frac{v}{c}<<1$. Por lo tanto, la desigualdad (16) no se cumple, entonces debe cumplirse el caso contrario, en el que g(Y,Y)$\geq$0, es decir, que sea timelike o null.
+\begin{center}
+    $(Y^{0})^2-(Y^{1})^2-(Y^{2})^2-(Y^{3})^2\geq$0\\
+    $(L_{0}^{0})^2-(L_{1}^{0})^2-(L_{2}^{0})^2-(L_{3}^{0})^2\geq$0
+\end{center}
+
+-Dada la forma del 4-vector Y:
+\begin{center}
+    $Y^{0}=L_{0}^{0}>$0
+\end{center}
+
+-Si utilizamos lo demostrado en el ejercicio 1: \textbf{Si $X^{0}>$0 y $Y^{0}>$0, entonces g(X.Y)$>$0}\\
+
+-Donde g(X,Y) esta definido como:
+\begin{center}
+    g(X,Y)=$g_{ab}X^{a}Y^{b}$
+\end{center}
+
+-Ahora, por medio de una transformación inhomogenea de Lorentz, tenemos que:
+\begin{equation}
+    g_{ab}X^{a}Y^{b}=g_{ab}L_{c}^{a}L_{d}^{b}\tilde{X}^{c}\tilde{Y}^{d}=g_{ab}\tilde{X}^{a}\tilde{Y}^{b}
+\end{equation}
+
+-Como se ve en la ecuacion (17), g(X,Y) es invariante en cualquier sistema de referencia inercial, por lo que se cumple que $X^{0}>$0 en todo sistema de referencia inercial.
+$\hfill\square$
+
+%\afterpage{\null\newpage}
+\newpage
+\section*{Ejercicio 3.3}
+Muestre que:
+\begin{enumerate}
+    \item[(i)] La suma de dos vectores future-pointing timelike es future-pointing timelike.
+    \item[(ii)] La suma de dos vectores future-pointing null es future-pointing y ya sea timelike o null.
+    \item[(iii)] Todo vector distinto de cero ortogonal a un vector timelike es spacelike. 
+    \item[(iv)] Todo vector distinto de cero ortogonal a un vector null X es ya sea spacelike o un múltiplo de X.  
+\end{enumerate}
+\begin{enumerate}
+    \item[(i)]
+    Si tenemos dos vectores X y Y tal que g(X,X)$>$0 y g(Y,Y)$>$0
+    donde $X^{0}>$0 y $Y^{0}>$0.\\
+    Podemos definir a Z como la suma de ambos vectores:
+    \begin{equation*}
+        Z=X+Y
+    \end{equation*}
+    -Se nos pide demostrar que:
+    \begin{center}
+        $g(Z,Z)>$0 y $Z^{0}>$0
+    \end{center} 
+    
+    -Dado que Z=X+Y, entonces $Z^{0}=X^{0}+Y^{0}$ y ya que $X^{0}>$0 y $Y^{0}>$0, podemos concluir que $Z^{0}>0$\\
+    -Por otra parte, tenemos que:
+    \begin{equation}
+        g(Z,Z)=(Z^{0})^2 - (Z^{1}) - (Z^{2})^2 - (Z^{3})^2
+    \end{equation}
+    -Al sustituir los valores de Z en (18) obtenemos:
+    \begin{equation}
+        g(Z,Z)=(X^{0}+Y^{0})^2 - (X^{1}+Y^{1})^2 - (X^{2}+Y^{2})^2 - (X^{3}+Y^{3})^2
+    \end{equation}
+    -Desarrollando (19):
+    \begin{eqnarray}
+    \nonumber g(Z,Z)=(X^{0})^2 + 2X^{0}Y^{0} + (Y^{0})^2 - [(X^{1})^2 + 2X^{1}Y^{1} + (Y^{1})^2]\\ 
+    - [(X^{2})^2 + 2X^{2}Y^{2} + (Y^{2})^2] - [(X^{3})^2 + 2X^{3}Y^{3} + (Y^{3})^2]  
+    \end{eqnarray}
+    -Agrupando términos:
+    \begin{eqnarray}
+    \nonumber g(Z,Z)=(X^{0})^2 -[(X^{1})^2+(X^{2})^2+(X^{3})^2]\\ \nonumber + (Y^{0})^2 - [(Y^{1})^2+(Y^{2})^2 +(Y^{3})^2]\\+ 2[X^{0}Y^{0}  - X^{1}Y^{1} - X^{2}Y^{2} - X^{3}Y^{3}] 
+    \end{eqnarray}
+    -Sabemos que:
+    \begin{eqnarray}
+     g(X,X)=(X^{0})^2 - [(X^{1}) + (X^{2})^2 + (X^{3})^2]\\
+     g(Y,Y)=(Y^{0})^2 - [(Y^{1}) + (Y^{2})^2 + (Y^{3})^2]\\
+     g(X,Y)=X^{0}Y^{0} - X^{1}Y^{1} - X^{2}Y^{2} - Y^{3}Y^{3}
+    \end{eqnarray}
+    -Al sustituir las ecuaciones (22), (23), (24) y en (21) obtenemos:
+    \begin{equation}
+        g(Z,Z)=g(X,X)+g(Y,Y) +2g(X,Y)
+    \end{equation}
+    -Donde, por lo demostrado en los ejercicios 3.1 y 3.2, g(X,X)$>$0, g(Y,Y)$>$0 y g(X,Y)$>$0. Entonces g(Z,Z)$>$0 
+    $\hfill\square$
+    
+    \item[(ii)] Si tenemos dos vectores X y Y tal que:
+    \begin{center}
+    $g(X,X)=0$, donde $X^{0}>0$\\
+    $g(Y,Y)=$ donde $Y^{0}>0$
+    \end{center}
+    -Definiendo a Z como la suma de los dos vectores:
+    \begin{center}
+        Z=X+Y
+    \end{center}
+    -Queremos demostrar que, si $Z^{0}>$0, entonces g(Z,Z)$>$0 para el caso timelike ó  g(Z,Z)=0 para el caso null.\\
+    -En el inciso anterior demostramos que $Z^{0}>$0, puesto que $Z^{0}=X^{0}+Y^{0}$, donde $X^{0},Y^{0}>$0\\
+    -Tomando la ecuación (25) del inciso anterior 
+    \begin{equation*}
+        g(Z,Z)=g(X,X)+g(Y,Y) +2g(X,Y)
+    \end{equation*}
+    -Donde, por el planteamiento del problema, g(X,X)=0 y g(Y,Y)=0 y por lo demostrado en el ejercicio 3.1, g(X,Y)$\geq$0. Por lo tanto, g(Z,Z)$\geq$0  
+    $\hfill\square$
+    \item[(iii)] Si tenemos un vector X$\not = \vec{0}$ y g(Y,Y)$>$0, se nos pide demostrar que si, g(X,Y)=0, entonces g(X,X)$<$0
+    
+    -Por el ejercicio 3.1 sabemos que:
+    \begin{equation}
+    g(X,Y)=X^{0}Y^{0} - \vec{X}\cdot\vec{Y}
+    \end{equation}
+    -Por lo tanto:
+    \begin{equation}
+    X^{0}Y^{0} = \vec{X}\cdot\vec{Y}
+    \end{equation}
+    -También sabemos que:
+    \begin{eqnarray}
+    \nonumber g(Y,Y)=(Y^{0})^2 - (|\vec{Y}|)^2\\
+    (Y^{0})^2 = |\vec{Y}|^2
+    \end{eqnarray}
+    -Entonces, análogamente para (27):
+    \begin{equation}
+    (X^{0}Y^{0})^2 < |\vec{X}|^2\cdot|\vec{Y}|^2
+    \end{equation}
+    -Al agrupar términos, obtenemos:
+    \begin{equation}
+    \frac{(X^{0})^2}{|\vec{X}|^2} < \frac{(Y^{0})^2}{|\vec{Y}|^2}
+    \end{equation}
+    -Por la ecuación (28), la ecuación (30) queda de la siguiente forma:
+    \begin{equation}
+    \frac{(X^{0})^2}{|\vec{X}|^2} < 1
+    \end{equation}
+    -Por lo tanto, $(X^{0})^2<|\vec{X}|^2$.\\
+    
+    -Al aplicar la métrica a X, obtenemos:
+    \begin{equation*}
+        g(X,X)=(X^{0})^2 - |\vec{X}|^2
+    \end{equation*}
+    -De lo anterior, podemos concluir que g(X,X)$<$0, es decir, es un vector spacelike. $\hfill\square$\\
+    
+    
+    \item[(iv)] Se nos pide demostrar que si tenemos un vector diferente de 0 ortogonal a X, este es spacelike ó un múltiplo de X\\
+    -Definimos Y al vector diferente de 0, con la forma:
+    \begin{center}
+        Y=($Y^{0},Y^{1},Y^{2},Y^{3})\not =$ 0
+    \end{center}
+    -Y al vector X como:
+    \begin{center}
+     X=($X^{0},X^{1},X^{2},X^{3}$)
+    \end{center}
+    -Sabemos que  g(X,X)=0, por lo que:
+    \begin{center}
+    $g(X,X)=(X^{0})^2 - (X^{1}) - (X^{2})^2 - (X^{3})^2$\\
+    
+    $g(X,X)=(X^{0})^2 - |\vec{X}|^2$
+    \end{center}
+    \begin{equation}
+    (X^{0})^2 = |\vec{X}|^2    
+    \end{equation}
+    -Ahora, tenemos que:
+    \begin{equation*}
+        g(X,Y)=X^{0}Y^{0} - [X^{1}Y^{1} + X^{2}Y^{2} + Y^{3}Y^{3}]
+    \end{equation*}
+    -Si suponemos que g(X,Y) es nulo, obtenemos:
+    \begin{center}
+     $X^{0}Y^{0} = [X^{1}Y^{1} + X^{2}Y^{2} + Y^{3}Y^{3}]$\\
+     $X^{0}Y^{0} = \vec{X}\cdot\vec{Y}$
+    \end{center}
+    -De la desigualdad de Cauchy-Schwartz sabemos que:
+    \begin{center}
+       $(\vec{X}\cdot\vec{Y})^2 \leq|\vec{X}|^2 \cdot |\vec{Y}|^2$\\
+       $(X^{0}Y^{0})^2 \leq|\vec{X}|^2 \cdot |\vec{Y}|^2$
+    \end{center}
+    \begin{equation}
+        (X^{0}Y^{0})^2 \leq\frac{|\vec{X}|^2\cdot |\vec{Y}|^2}{(X^{0})^2}
+    \end{equation}
+    -De la igualdad (32) sabemos que:
+    \begin{equation}
+        \frac{|\vec{X}|^2}{(X^{0})^2}=1
+    \end{equation}
+    -Ahora al sustituir (34) en (33) nos queda:
+    \begin{equation*}
+        (Y^{0})^2 \leq|\vec{Y}|^2
+    \end{equation*}
+    -Por lo tanto, podemos concluir que si $(Y^{0})^2 <|\vec{Y}|^2$, entonces g(Y,Y)$<$0, en otras palabras, es spacelike. Por otro lado, si $(Y^{0})^2 =|\vec{Y}|^2$, entonces g(Y,Y)=0, es decir, nulo; esto nos permite concluir que Y es múltiplo de X, Y=kX
+    $\hfill\square$
+\end{enumerate}
+
+\newpage
+\section*{Ejercicio 3.4}
+Deja que X y Y sean vectores  future-pointing timelike y que Z=X+Y. Muestre que:
+\begin{equation*}
+    \sqrt{g(Z,Z)}\geq\sqrt{g(X,X)}+\sqrt{g(Y,Y)}
+\end{equation*}
+-Al igual que en el ejercicio 3.3, tenemos que Z=X+Y, por lo que podemos utilizar la ecuación (18)
+\begin{equation}
+     g(Z,Z)=g(X,X)+g(Y,Y) +2g(X,Y)
+\end{equation}
+-Partimos de la solución:
+\begin{equation*}
+    \sqrt{g(Z,Z)}\geq\sqrt{g(X,X)}+\sqrt{g(Y,Y)}
+\end{equation*}
+-Elevamos al cuadrado ambos lados y desarrollamos:
+\begin{eqnarray}
+\nonumber {g(Z,Z)}\geq(\sqrt{g(X,X)}+\sqrt{g(Y,Y)})^2\\
+{g(Z,Z)}\geq g(X,X)+g(Y,Y)+2(\sqrt{g(X,X)g(Y,Y)})
+\end{eqnarray}
+-Sustituimos (35) en (36)
+\begin{equation}
+ g(X,X)+g(Y,Y) +2g(X,Y)\geq g(X,X)+g(Y,Y)+2(\sqrt{g(X,X)g(Y,Y)})
+\end{equation}
+-Notamos que algunos términos están en ambos lados de la desigualdad, por lo que pueden cancelarse. Obtenemos:
+\begin{equation}
+ g(X,Y)\geq \sqrt{g(X,X)g(Y,Y)}
+\end{equation}
+-En el ejercicio 3.1 demostramos que:
+\begin{equation}
+    g(X,Y)\geq X^{0}Y^{0} - \vec{X}\cdot\vec{Y}
+\end{equation}
+-Ahora, de la desigualdad de Cauchy-Shwartz, $(\vec{X}\cdot\vec{Y})^2 \leq|\vec{X}|^2 \cdot |\vec{Y}|^2$, observamos que es posible que se cumpla mediante 4 casos:
+\begin{enumerate}
+    \item Si $\vec{X}\cdot\vec{Y}$=0 y $|\vec{X}| \cdot |\vec{Y}|$=0, entonces 0$\leq$0
+    \item Si $\vec{X}\cdot\vec{Y}>$ 0, entonces se cumple que $(\vec{X}\cdot\vec{Y}) \leq|\vec{X}| \cdot |\vec{Y}|$
+    \item Si $\vec{X}\cdot\vec{Y}<$0, entonces se cumple que -$(\vec{X}\cdot\vec{Y}) \leq|\vec{X}| \cdot |\vec{Y}|$
+    \item Si $\vec{X}\cdot\vec{Y}<$0 y $|\vec{X}| \cdot |\vec{Y}|<$0, entonces se cumple que -$(\vec{X}\cdot\vec{Y}) \leq-|\vec{X}| \cdot |\vec{Y}|$
+\end{enumerate}
+-Si nos enfocamos en el caso 4, podemos sustituir $|\vec{X}| \cdot |\vec{Y}|$ en (39) y se seguirá cumpliendo la desigualdad, obtenemos:
+\begin{equation}
+    g(X,Y)\geq X^{0}Y^{0} - |\vec{X}| \cdot |\vec{Y}|
+\end{equation}
+-Sabemos también que:
+\begin{center}
+    $g(X,X)= (X^{0})^2-|\vec{X}|^2$ despejando $X^{0}=\sqrt{g(X,X)+|\vec{X}|^2}$\\
+    $g(Y,Y)= (Y^{0})^2-|\vec{Y}|^2$ despejando $Y^{0}=\sqrt{g(Y,Y)+|\vec{Y}|^2}$
+\end{center}
+-Sustituimos lo anterior en (40) y obtenemos:
+\begin{equation}
+    g(X,Y)\geq \sqrt{g(X,X)+|\vec{X}|^2} \sqrt{g(Y,Y)+|\vec{Y}|^2} - |\vec{X}| \cdot |\vec{Y}|
+\end{equation}
+-Ahora hacemos que: 
+\begin{eqnarray}
+\nonumber A=\frac{g(X,X)}{|\vec{X}|^2}\\
+\nonumber B=\frac{g(Y,Y)}{|\vec{Y}|^2}
+\end{eqnarray}
+-La ecuación (41) la podemos escribir de la siguiente manera:
+\begin{eqnarray}
+\nonumber   g(X,Y)\geq |\vec{X}||\vec{Y}| \sqrt{1+A} \sqrt{1+B} - |\vec{X}| \cdot |\vec{Y}|\\
+\nonumber g(X,Y)\geq |\vec{X}||\vec{Y}| (\sqrt{1+A} \sqrt{1+B} - 1)
+\end{eqnarray}
+-Ahora supongamos que:
+\begin{center}
+    $\sqrt{1+A} \sqrt{1+B} - 1\geq \sqrt{AB}$\\
+    $\sqrt{1+A} \sqrt{1+B} \geq \sqrt{AB}+1$
+\end{center}
+-Elevamos ambos lados al cuadrado para mantener la desigualdad:
+\begin{center}
+    $(1+A)(1+B) \geq AB+1+2\sqrt{AB}$\\
+    A+B $\geq$ 2$\sqrt{AB}$
+\end{center}
+-Elevamos ambos lados al cuadrado nuevamente y obtenemos:
+\begin{center}
+    $A^2+B^2+2AB\geq 4AB$\\
+    $A^2+B^2-2AB \geq 0$\\
+    $(A^2-B^2)\geq 0$
+\end{center}
+-Llegamos a una desigualdad verdadera, por lo que podemos ver que la ecuación (39) se cumple. Esto nos permite concluir que el planteamiento del problema es verdadero. $\hfill\square$
+\end{document}
